@@ -1,7 +1,7 @@
 package com.neo.controller;
 
 import com.neo.domain.TestSuite;
-import com.neo.service.generator.AETG;
+import com.neo.service.generator.SA;
 import com.neo.service.handler.MFTVerifier;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -71,9 +71,9 @@ public class DockerController {
 	  }
         Instant start = Instant.now();
         com.neo.service.combinatorial.CTModel model = new com.neo.service.combinatorial.CTModel(parameters,  values,strength, constraint, new MFTVerifier());
-        AETG aetg = new AETG();
+        SA sa = new SA(0.2, 10000, false);
         com.neo.service.combinatorial.TestSuite ts = new com.neo.service.combinatorial.TestSuite();
-        aetg.generation(model, ts);
+        sa.generation(model, ts);
         Instant end = Instant.now();
         long time = Duration.between(start, end).toMillis();
 
