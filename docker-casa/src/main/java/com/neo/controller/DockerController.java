@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-//@RequestMapping("/generation")
 public class DockerController {
 	
     @RequestMapping(value = "", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
@@ -84,8 +83,4 @@ public class DockerController {
         return res;
     }
 
-    @GetMapping("/check")
-    public String healthCheck(){
-        return "ok";
-    }
 }
